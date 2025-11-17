@@ -99,6 +99,7 @@
         .project-card:nth-child(4) { animation-delay: 0.6s; }
         .project-card:nth-child(5) { animation-delay: 0.7s; }
         .project-card:nth-child(6) { animation-delay: 0.8s; }
+        .project-card:nth-child(7) { animation-delay: 0.9s; }
 
         .project-card::before {
             content: '';
@@ -236,154 +237,173 @@
             }
         }
 
-            .about-me {
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto 4rem;
-                animation: fadeInUp 1s ease 0.3s both;
+        .about-me {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
-            .section-title {
-                font-size: 2rem;
-                font-weight: 700;
-                color: #ffffff;
-                margin-bottom: 1.5rem;
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
         }
 
-            .about-text {
-                font-size: 1.1rem;
-                line-height: 1.8;
-                color: #b0b0b0;
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b0b0b0;
         }
-            .project-link{
-                margin-top: 1.1rem;
-            }
+        .project-link{
+            margin-top: 1.1rem;
+        }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
+<div class="stars" id="stars"></div>
 
-    <div class="container">
-        <header>
-            <h1 class="name">Bello-Pluto Salvatore</h1>
-            <p class="tagline">Python Developer | Web Scraping | AI Integration | Flask/FastAPI Enthusiast</p>
-        </header>
+<div class="container">
+    <header>
+        <h1 class="name">Bello-Pluto Salvatore</h1>
+        <p class="tagline">Python Developer | Web Scraping | AI Integration | Flask/FastAPI</p>
+    </header>
 
-        <section class="about-me">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                I taught myself Python because I wanted to build stuff, not just fix it.
-                What started as curiosity turned into Flask apps, web scrapers, and AI-powered tools.
-                No bootcamp, no CS degree just figuring things by making mistakes.
-                Now I write code that actually solves problems, from tracking Amazon prices to creating networking applications.
-            </p>
-        </section>
+    <section class="about-me">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+            I taught myself Python because I wanted to build stuff, not just fix it.
+            What started as curiosity turned into Flask apps, web scrapers, and AI-powered tools.
+            No bootcamp, no CS degree just figuring things by making mistakes.
+            Now I write code that actually solves problems, from tracking Amazon prices to creating networking applications.
+        </p>
+    </section>
 
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-status">Work in Progress</div>
-                <div class="project-icon">🛒</div>
-                <h2 class="project-title">Amazon Product Scraper & Tracker</h2>
-                <p class="project-desc">A Flask web application that scrapes Amazon products, tracks prices over time, and visualizes price history with interactive charts. Features favourites, tracking, and Bootstrap 5 UI.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">SQLAlchemy</span>
-                    <span class="tech-tag">Pandas</span>
-                    <span class="tech-tag">Matplotlib</span>
-                    <span class="tech-tag">Bootstrap 5</span>
-                    <span class="tech-tag">Bright Data API</span>
-                </div>
-                <a href="https://product-tracker-i2ci.onrender.com/" class="github-link">View page on Render →</a>
-                <div class="project-link">
+    <div class="project-card">
+        <div class="project-status complete">Complete</div>
+        <div class="project-icon">🌐</div>
+        <h2 class="project-title">Black-Scholes Option P/L, Heatmaps</h2>
+        <p class="project-desc">A Streamlit application for calculating Black-Scholes option prices, simulating Profit & Loss (P/L) based on user purchase prices, visualizing heatmaps of P/L, and saving results to a SQLite database using SQLAlchemy 2.0.</p>
+        <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Numpy</span>
+            <span class="tech-tag">Scipy</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">SQLAlchemy</span>
+        </div>
+        <a href="https://github.com/MPALONDON/Product_Tracker" class="github-link">View on GitHub →</a>
+        <div class="project-link">
+            <a href="https://blackscholes-price-db.streamlit.app/" class="github-link">View on Streamlit →</a>
+        </div>
+    </div>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-status">Work in Progress</div>
+            <div class="project-icon">🛒</div>
+            <h2 class="project-title">Amazon Product Scraper & Tracker</h2>
+            <p class="project-desc">A Flask web application that scrapes Amazon products, tracks prices over time, and visualizes price history with interactive charts. Features favourites, tracking, and Bootstrap 5 UI.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Bright Data API</span>
+            </div>
+            <a href="https://product-tracker-i2ci.onrender.com/" class="github-link">View page on Render →</a>
+            <div class="project-link">
                 <a href="https://github.com/MPALONDON/Product_Tracker" class="github-link">View on GitHub →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-status complete">Complete</div>
-                <div class="project-icon">🌐</div>
-                <h2 class="project-title">Network Chat Application</h2>
-                <p class="project-desc">Multi-client chat application with real-time messaging using Python and Tkinter. Features server-side management, message broadcasting, private messaging, and administrative controls (kick/ban). Uses threading and sockets for simultaneous client connections and JSON for structured communication.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Tkinter</span>
-                    <span class="tech-tag">Socket</span>
-                    <span class="tech-tag">Threading</span>
-                    <span class="tech-tag">JSON</span>
-                    <span class="tech-tag">GUI Development</span>
-                </div>
-                <a href="https://github.com/MPALONDON/GUI_Network" class="github-link">View on GitHub →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-status">Work in Progress</div>
-                <div class="project-icon">📚</div>
-                <h2 class="project-title">Bookshelf Scanner</h2>
-                <p class="project-desc">AI-powered Flask app that scans bookshelf photos to detect books and provides personalized recommendations using OpenAI's ChatGPT API. Track reading habits and discover new titles.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">OpenAI API</span>
-                    <span class="tech-tag">SQLAlchemy</span>
-                    <span class="tech-tag">Flask-Login</span>
-                    <span class="tech-tag">Bootstrap 5</span>
-                    <span class="tech-tag">Computer Vision</span>
-                </div>
-                <a href="https://github.com/MPALONDON/Shelfscanner" class="github-link">View on GitHub →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-status complete">Complete</div>
-                <div class="project-icon">✍️</div>
-                <h2 class="project-title">Flask Blog</h2>
-                <p class="project-desc">Full-featured blog with user authentication, commenting system, and admin controls. Rich text editing with CKEditor, role-based permissions, and clean Bootstrap interface.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">SQLAlchemy</span>
-                    <span class="tech-tag">Flask-WTF</span>
-                    <span class="tech-tag">CKEditor</span>
-                    <span class="tech-tag">Flask-Login</span>
-                    <span class="tech-tag">Bootstrap 5</span>
-                </div>
-                <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog" class="github-link">View on GitHub →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-status complete">Complete</div>
-                <div class="project-icon">🎵</div>
-                <h2 class="project-title">Discord Bot</h2>
-                <p class="project-desc">Feature-rich Discord bot with moderation tools, music playback from YouTube, polling system, and automated welcome messages. Built with discord.py and yt_dlp.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">discord.py</span>
-                    <span class="tech-tag">SQLAlchemy</span>
-                    <span class="tech-tag">yt_dlp</span>
-                    <span class="tech-tag">FFmpeg</span>
-                    <span class="tech-tag">Bot Development</span>
-                </div>
-                <a href="https://github.com/MPALONDON/discordbot" class="github-link">View on GitHub →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="project-status complete">Complete</div>
-                <div class="project-icon">🤖</div>
-                <h2 class="project-title">Web Scraping Automation</h2>
-                <p class="project-desc">Automated scraper using BeautifulSoup and Selenium that extracts book data from Books to Scrape and submits it to Google Forms. Includes data analytics with Matplotlib visualizations.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">BeautifulSoup</span>
-                    <span class="tech-tag">Selenium</span>
-                    <span class="tech-tag">Matplotlib</span>
-                    <span class="tech-tag">Data Analytics</span>
-                    <span class="tech-tag">Web Automation</span>
-                </div>
-                <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation" class="github-link">View on GitHub →</a>
             </div>
         </div>
 
-        <footer>
-            <p>© 2025 Bello-Pluto Salvatore</p>
-        </footer>
+        <div class="project-card">
+            <div class="project-status complete">Complete</div>
+            <div class="project-icon">🌐</div>
+            <h2 class="project-title">Network Chat Application</h2>
+            <p class="project-desc">Multi-client chat application with real-time messaging using Python and Tkinter. Features server-side management, message broadcasting, private messaging, and administrative controls (kick/ban). Uses threading and sockets for simultaneous client connections and JSON for structured communication.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Tkinter</span>
+                <span class="tech-tag">Socket</span>
+                <span class="tech-tag">Threading</span>
+                <span class="tech-tag">JSON</span>
+                <span class="tech-tag">GUI Development</span>
+            </div>
+            <a href="https://github.com/MPALONDON/GUI_Network" class="github-link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-status">Work in Progress</div>
+            <div class="project-icon">📚</div>
+            <h2 class="project-title">Bookshelf Scanner</h2>
+            <p class="project-desc">AI-powered Flask app that scans bookshelf photos to detect books and provides personalized recommendations using OpenAI's ChatGPT API. Track reading habits and discover new titles.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">OpenAI API</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">Flask-Login</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">Computer Vision</span>
+            </div>
+            <a href="https://github.com/MPALONDON/Shelfscanner" class="github-link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-status complete">Complete</div>
+            <div class="project-icon">✍️</div>
+            <h2 class="project-title">Flask Blog</h2>
+            <p class="project-desc">Full-featured blog with user authentication, commenting system, and admin controls. Rich text editing with CKEditor, role-based permissions, and clean Bootstrap interface.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">Flask-WTF</span>
+                <span class="tech-tag">CKEditor</span>
+                <span class="tech-tag">Flask-Login</span>
+                <span class="tech-tag">Bootstrap 5</span>
+            </div>
+            <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog" class="github-link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-status complete">Complete</div>
+            <div class="project-icon">🎵</div>
+            <h2 class="project-title">Discord Bot</h2>
+            <p class="project-desc">Feature-rich Discord bot with moderation tools, music playback from YouTube, polling system, and automated welcome messages. Built with discord.py and yt_dlp.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">discord.py</span>
+                <span class="tech-tag">SQLAlchemy</span>
+                <span class="tech-tag">yt_dlp</span>
+                <span class="tech-tag">FFmpeg</span>
+                <span class="tech-tag">Bot Development</span>
+            </div>
+            <a href="https://github.com/MPALONDON/discordbot" class="github-link">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-status complete">Complete</div>
+            <div class="project-icon">🤖</div>
+            <h2 class="project-title">Web Scraping Automation</h2>
+            <p class="project-desc">Automated scraper using BeautifulSoup and Selenium that extracts book data from Books to Scrape and submits it to Google Forms. Includes data analytics with Matplotlib visualizations.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">BeautifulSoup</span>
+                <span class="tech-tag">Selenium</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Data Analytics</span>
+                <span class="tech-tag">Web Automation</span>
+            </div>
+            <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation" class="github-link">View on GitHub →</a>
+        </div>
     </div>
 
-    <script>
+    <footer>
+        <p>© 2025 Bello-Pluto Salvatore</p>
+    </footer>
+</div>
+
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 100; i++) {
