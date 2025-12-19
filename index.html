@@ -1,432 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bello-Pluto Salvatore | Python Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bello-Pluto Salvatore | Python Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0d0d20; color: #e0e0e0; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
 
-        .star {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
-            box-shadow: 0 0 4px white;
-        }
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 40vh;
+    padding: 4rem 1rem;
+}
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+.hero p { font-size: 1.5rem; color: #a0a0a0; margin-bottom: 2rem; }
+.hero .buttons a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background: #667eea;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.hero .buttons a:hover { background: #764ba2; transform: translateY(-3px); }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
+.about {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.about h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
+.about p { font-size: 1.1rem; line-height: 1.8; color: #b0b0b0; max-width: 800px; margin: 0 auto; }
 
-        header {
-            padding: 4rem 0 6rem;
-            text-align: center;
-        }
 
-        .name {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
+.projects {
+    padding: 4rem 1rem;
+}
+.projects h2 {
+    font-size: 2.5rem; margin-bottom: 2rem; color: #fff; text-align: center;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.project-card {
+    background: rgba(30,30,46,0.75);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(102,126,234,0.3); }
+.project-card .status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+}
+.project-card .status.complete { background: rgba(76,175,80,0.2); color:#4caf50; border-color: rgba(76,175,80,0.3);}
+.project-card .status.wip { background: rgba(255,193,7,0.2); color:#ffc107; border-color: rgba(255,193,7,0.3); }
 
-        .tagline {
-            font-size: 1.5rem;
-            color: #a0a0a0;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
+.project-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.project-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; color: #d0d0d0; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.tech-tags span { background: rgba(102,126,234,0.2); color:#a0b0ff; padding:0.4rem 0.8rem; border-radius:8px; font-size:0.8rem; border: 1px solid rgba(102,126,234,0.3);}
+.project-links a { display:inline-block; margin-right: 0.5rem; margin-top:0.5rem; padding:0.5rem 1rem; border-radius:6px; background:#667eea; color:#fff; font-weight:600; transition: background 0.3s ease;}
+.project-links a:hover { background:#764ba2; }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0 4rem;
-        }
 
-        .project-card {
-            background: rgba(30, 30, 46, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease both;
-        }
+footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); color:#666; }
 
-        .project-card:nth-child(1) { animation-delay: 0.3s; }
-        .project-card:nth-child(2) { animation-delay: 0.4s; }
-        .project-card:nth-child(3) { animation-delay: 0.5s; }
-        .project-card:nth-child(4) { animation-delay: 0.6s; }
-        .project-card:nth-child(5) { animation-delay: 0.7s; }
-        .project-card:nth-child(6) { animation-delay: 0.8s; }
-        .project-card:nth-child(7) { animation-delay: 0.9s; }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #b0b0b0;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-tag {
-            background: rgba(102, 126, 234, 0.2);
-            color: #a0b0ff;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        .project-status {
-            display: inline-block;
-            background: rgba(255, 193, 7, 0.2);
-            color: #ffc107;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-status.complete {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-            border-color: rgba(76, 175, 80, 0.3);
-        }
-
-        .github-link {
-            display: inline-block;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .github-link:hover {
-            color: #764ba2;
-            transform: translateX(5px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: #666;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .name {
-                font-size: 2.5rem;
-            }
-            .tagline {
-                font-size: 1.2rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .about-me {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #b0b0b0;
-        }
-        .project-link{
-            margin-top: 1.1rem;
-        }
-    </style>
+@media (max-width: 768px){
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.2rem; }
+}
+</style>
 </head>
 <body>
-<div class="stars" id="stars"></div>
 
 <div class="container">
-    <header>
-        <h1 class="name">Bello-Pluto Salvatore</h1>
-        <p class="tagline">Python Developer | Web Scraping | AI Integration | Flask/FastAPI</p>
-    </header>
 
-    <section class="about-me">
-        <h2 class="section-title">About Me</h2>
-        <p class="about-text">
+    <section class="hero">
+        <h1>Bello-Pluto Salvatore</h1>
+        <p>Python Developer | Web Scraping | AI Integration | Flask/FastAPI</p>
+        <div class="buttons">
+            <a href="#projects">View Projects</a>
+            <a href="#about">About Me</a>
+        </div>
+    </section>
+
+
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>
             I taught myself Python because I wanted to build stuff, not just fix it.
             What started as curiosity turned into Flask apps, web scrapers, and AI-powered tools.
-            No bootcamp, no CS degree just figuring things by making mistakes.
             Now I write code that actually solves problems, from tracking Amazon prices to creating networking applications.
         </p>
     </section>
 
-    <div class="project-card">
-        <div class="project-status complete">Complete</div>
-        <div class="project-icon">🌐</div>
-        <h2 class="project-title">Black-Scholes Option P/L, Heatmaps</h2>
-        <p class="project-desc">A Streamlit application for calculating Black-Scholes option prices, simulating Profit & Loss (P/L) based on user purchase prices, visualizing heatmaps of P/L, and saving results to a SQLite database using SQLAlchemy 2.0.</p>
-        <div class="tech-tags">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Matplotlib</span>
-            <span class="tech-tag">Numpy</span>
-            <span class="tech-tag">Scipy</span>
-            <span class="tech-tag">Pandas</span>
-            <span class="tech-tag">SQLAlchemy</span>
-        </div>
-        <a href="https://github.com/MPALONDON/Product_Tracker" class="github-link">View on GitHub →</a>
-        <div class="project-link">
-            <a href="https://blackscholes-price-db.streamlit.app/" class="github-link">View on Streamlit →</a>
-        </div>
-    </div>
 
-    <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-status">Work in Progress</div>
-            <div class="project-icon">🛒</div>
-            <h2 class="project-title">Amazon Product Scraper & Tracker</h2>
-            <p class="project-desc">A Flask web application that scrapes Amazon products, tracks prices over time, and visualizes price history with interactive charts. Features favourites, tracking, and Bootstrap 5 UI.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">SQLAlchemy</span>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">Matplotlib</span>
-                <span class="tech-tag">Bootstrap 5</span>
-                <span class="tech-tag">Bright Data API</span>
-            </div>
-            <a href="https://product-tracker-i2ci.onrender.com/" class="github-link">View page on Render →</a>
-            <div class="project-link">
-                <a href="https://github.com/MPALONDON/Product_Tracker" class="github-link">View on GitHub →</a>
-            </div>
-        </div>
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
 
-        <div class="project-card">
-            <div class="project-status complete">Complete</div>
-            <div class="project-icon">🌐</div>
-            <h2 class="project-title">Network Chat Application</h2>
-            <p class="project-desc">Multi-client chat application with real-time messaging using Python and Tkinter. Features server-side management, message broadcasting, private messaging, and administrative controls (kick/ban). Uses threading and sockets for simultaneous client connections and JSON for structured communication.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Tkinter</span>
-                <span class="tech-tag">Socket</span>
-                <span class="tech-tag">Threading</span>
-                <span class="tech-tag">JSON</span>
-                <span class="tech-tag">GUI Development</span>
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">🧠</div>
+                <h3>Coding Knowledge Tester</h3>
+                <p>A FastAPI + React application that tests coding knowledge using AI-generated multiple-choice questions. Users sign in via Clerk authentication, answer questions, and receive instant feedback with explanations. The app also keeps a history of previously generated questions for review and learning.</p>
+                <div class="tech-tags">
+                    <span>FastAPI</span><span>React</span><span>Python</span><span>JavaScript</span><span>OpenAI API</span><span>Clerk</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/CodeKnowledgeTester">GitHub →</a>
+                    <a href="https://codeknowledgetester-frontend.onrender.com">Live Demo →</a>
+                </div>
             </div>
-            <a href="https://github.com/MPALONDON/GUI_Network" class="github-link">View on GitHub →</a>
-        </div>
 
-        <div class="project-card">
-            <div class="project-status">Work in Progress</div>
-            <div class="project-icon">📚</div>
-            <h2 class="project-title">Bookshelf Scanner</h2>
-            <p class="project-desc">AI-powered Flask app that scans bookshelf photos to detect books and provides personalized recommendations using OpenAI's ChatGPT API. Track reading habits and discover new titles.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">OpenAI API</span>
-                <span class="tech-tag">SQLAlchemy</span>
-                <span class="tech-tag">Flask-Login</span>
-                <span class="tech-tag">Bootstrap 5</span>
-                <span class="tech-tag">Computer Vision</span>
-            </div>
-            <a href="https://github.com/MPALONDON/Shelfscanner" class="github-link">View on GitHub →</a>
-        </div>
 
-        <div class="project-card">
-            <div class="project-status complete">Complete</div>
-            <div class="project-icon">✍️</div>
-            <h2 class="project-title">Flask Blog</h2>
-            <p class="project-desc">Full-featured blog with user authentication, commenting system, and admin controls. Rich text editing with CKEditor, role-based permissions, and clean Bootstrap interface.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">SQLAlchemy</span>
-                <span class="tech-tag">Flask-WTF</span>
-                <span class="tech-tag">CKEditor</span>
-                <span class="tech-tag">Flask-Login</span>
-                <span class="tech-tag">Bootstrap 5</span>
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">🌐</div>
+                <h3>Black-Scholes Option P/L, Heatmaps</h3>
+                <p>Streamlit app for calculating Black-Scholes option prices, visualizing heatmaps, and storing results in SQLite using SQLAlchemy 2.0.</p>
+                <div class="tech-tags">
+                    <span>Python</span><span>Matplotlib</span><span>Numpy</span><span>Scipy</span><span>Pandas</span><span>SQLAlchemy</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/Product_Tracker">GitHub →</a>
+                    <a href="https://blackscholes-price-db.streamlit.app/">Live Demo →</a>
+                </div>
             </div>
-            <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog" class="github-link">View on GitHub →</a>
-        </div>
 
-        <div class="project-card">
-            <div class="project-status complete">Complete</div>
-            <div class="project-icon">🎵</div>
-            <h2 class="project-title">Discord Bot</h2>
-            <p class="project-desc">Feature-rich Discord bot with moderation tools, music playback from YouTube, polling system, and automated welcome messages. Built with discord.py and yt_dlp.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">discord.py</span>
-                <span class="tech-tag">SQLAlchemy</span>
-                <span class="tech-tag">yt_dlp</span>
-                <span class="tech-tag">FFmpeg</span>
-                <span class="tech-tag">Bot Development</span>
-            </div>
-            <a href="https://github.com/MPALONDON/discordbot" class="github-link">View on GitHub →</a>
-        </div>
 
-        <div class="project-card">
-            <div class="project-status complete">Complete</div>
-            <div class="project-icon">🤖</div>
-            <h2 class="project-title">Web Scraping Automation</h2>
-            <p class="project-desc">Automated scraper using BeautifulSoup and Selenium that extracts book data from Books to Scrape and submits it to Google Forms. Includes data analytics with Matplotlib visualizations.</p>
-            <div class="tech-tags">
-                <span class="tech-tag">BeautifulSoup</span>
-                <span class="tech-tag">Selenium</span>
-                <span class="tech-tag">Matplotlib</span>
-                <span class="tech-tag">Data Analytics</span>
-                <span class="tech-tag">Web Automation</span>
+            <div class="project-card">
+                <div class="status wip">Work in Progress</div>
+                <div class="icon">🛒</div>
+                <h3>Amazon Product Scraper & Tracker</h3>
+                <p>Flask app to scrape Amazon products, track prices, and visualize price history with interactive charts. Includes favourites and Bootstrap 5 UI.</p>
+                <div class="tech-tags">
+                    <span>Flask</span><span>SQLAlchemy</span><span>Pandas</span><span>Matplotlib</span><span>Bootstrap 5</span><span>Bright Data API</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://product-tracker-i2ci.onrender.com/">Live Demo →</a>
+                    <a href="https://github.com/MPALONDON/Product_Tracker">GitHub →</a>
+                </div>
             </div>
-            <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation" class="github-link">View on GitHub →</a>
+
+
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">🌐</div>
+                <h3>Network Chat Application</h3>
+                <p>Multi-client chat application with real-time messaging using Python and Tkinter. Features private messaging, server-side management, threading, and JSON communication.</p>
+                <div class="tech-tags">
+                    <span>Python</span><span>Tkinter</span><span>Socket</span><span>Threading</span><span>JSON</span><span>GUI Development</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/GUI_Network">GitHub →</a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="status wip">Work in Progress</div>
+                <div class="icon">📚</div>
+                <h3>Bookshelf Scanner</h3>
+                <p>AI-powered Flask app that scans bookshelf photos to detect books and provides personalized recommendations using OpenAI API. Tracks reading habits and suggests new titles.</p>
+                <div class="tech-tags">
+                    <span>Flask</span><span>OpenAI API</span><span>SQLAlchemy</span><span>Flask-Login</span><span>Bootstrap 5</span><span>Computer Vision</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/Shelfscanner">GitHub →</a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">✍️</div>
+                <h3>Flask Blog</h3>
+                <p>Full-featured blog with user authentication, commenting system, and admin controls. Rich text editing with CKEditor and Bootstrap 5 interface.</p>
+                <div class="tech-tags">
+                    <span>Flask</span><span>SQLAlchemy</span><span>Flask-WTF</span><span>CKEditor</span><span>Flask-Login</span><span>Bootstrap 5</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog">GitHub →</a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">🎵</div>
+                <h3>Discord Bot</h3>
+                <p>Feature-rich Discord bot with moderation, music playback, polling system, and automated welcome messages. Built with discord.py and yt_dlp.</p>
+                <div class="tech-tags">
+                    <span>discord.py</span><span>SQLAlchemy</span><span>yt_dlp</span><span>FFmpeg</span><span>Bot Development</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/discordbot">GitHub →</a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="status complete">Complete</div>
+                <div class="icon">🤖</div>
+                <h3>Web Scraping Automation</h3>
+                <p>Automated scraper using BeautifulSoup and Selenium that extracts book data and submits it to Google Forms. Includes Matplotlib analytics.</p>
+                <div class="tech-tags">
+                    <span>BeautifulSoup</span><span>Selenium</span><span>Matplotlib</span><span>Data Analytics</span><span>Web Automation</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation">GitHub →</a>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 
     <footer>
         <p>© 2025 Bello-Pluto Salvatore</p>
     </footer>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
-        }
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.project-card');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-
-            cards.forEach((card, index) => {
-                const depth = (index % 2 === 0 ? 10 : -10);
-                const moveX = (mouseX - 0.5) * depth;
-                const moveY = (mouseY - 0.5) * depth;
-                card.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-        });
-    });
-</script>
 </body>
 </html>
