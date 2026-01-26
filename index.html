@@ -1,259 +1,841 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bello-Pluto Salvatore | Python Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bello-Pluto Salvatore | Python Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: #0d0d20; color: #e0e0e0; }
-a { text-decoration: none; color: inherit; }
-.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        :root {
+            --primary: #0A0A0A;
+            --secondary: #F5F5F5;
+            --accent: #6366F1;
+            --text-primary: #0A0A0A;
+            --text-secondary: #666666;
+            --border: #E5E5E5;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 40vh;
-    padding: 4rem 1rem;
-}
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-}
-.hero p { font-size: 1.5rem; color: #a0a0a0; margin-bottom: 2rem; }
-.hero .buttons a {
-    display: inline-block;
-    margin: 0 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    background: #667eea;
-    color: #fff;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-.hero .buttons a:hover { background: #764ba2; transform: translateY(-3px); }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
 
-.about {
-    text-align: center;
-    padding: 4rem 1rem;
-}
-.about h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
-.about p { font-size: 1.1rem; line-height: 1.8; color: #b0b0b0; max-width: 800px; margin: 0 auto; }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1.5rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
 
-.projects {
-    padding: 4rem 1rem;
-}
-.projects h2 {
-    font-size: 2.5rem; margin-bottom: 2rem; color: #fff; text-align: center;
-}
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-.project-card {
-    background: rgba(30,30,46,0.75);
-    border-radius: 16px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(102,126,234,0.3); }
-.project-card .status {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-}
-.project-card .status.complete { background: rgba(76,175,80,0.2); color:#4caf50; border-color: rgba(76,175,80,0.3);}
-.project-card .status.wip { background: rgba(255,193,7,0.2); color:#ffc107; border-color: rgba(255,193,7,0.3); }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background-image: url('https://i.redd.it/3arwdddun2h21.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
 
-.project-card .icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-.project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-.project-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; color: #d0d0d0; }
-.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-.tech-tags span { background: rgba(102,126,234,0.2); color:#a0b0ff; padding:0.4rem 0.8rem; border-radius:8px; font-size:0.8rem; border: 1px solid rgba(102,126,234,0.3);}
-.project-links a { display:inline-block; margin-right: 0.5rem; margin-top:0.5rem; padding:0.5rem 1rem; border-radius:6px; background:#667eea; color:#fff; font-weight:600; transition: background 0.3s ease;}
-.project-links a:hover { background:#764ba2; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background: #4F46E5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
 
-footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid rgba(255,255,255,0.1); color:#666; }
+        .about {
+            padding: 8rem 0;
+            background: var(--secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
 
 
-@media (max-width: 768px){
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1.2rem; }
-}
-</style>
+        .projects {
+            padding: 8rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-status {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-complete {
+            background: #ECFDF5;
+            color: #059669;
+        }
+
+        .status-wip {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            background: var(--secondary);
+            border-radius: 6px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #4F46E5;
+            gap: 0.5rem;
+        }
+
+
+        .location {
+            padding: 8rem 0;
+            background: var(--secondary);
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .location-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .location-address {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .contact-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+
+        footer {
+            padding: 4rem 0;
+            background: var(--primary);
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #FFFFFF;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .fade-in-view {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-view.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
 
-    <section class="hero">
-        <h1>Bello-Pluto Salvatore</h1>
-        <p>Python Developer | Web Scraping | AI Integration | Flask/FastAPI</p>
-        <div class="buttons">
-            <a href="#projects">View Projects</a>
-            <a href="#about">About Me</a>
+<nav>
+    <div class="container">
+        <div class="logo">BP Salvatore</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-tag">Python/C++ Developer</span>
+            <h1>Bello-Pluto<br>Salvatore</h1>
+            <p class="hero-subtitle">
+                Building intelligent applications with Python and C++. Specializing in trading,
+                AI integration, and full-stack development with FastAPI/Flask/Django/React.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>
-            I taught myself Python because I wanted to build stuff, not just fix it.
-            What started as curiosity turned into FastAPI apps, web scrapers
-        </p>
-    </section>
-    
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">About Me</p>
+            <h2 class="section-title">Self-Taught Developer</h2>
+        </div>
+        <div class="about-content">
+            <p>
+                I taught myself Python and C++ because I wanted to build stuff, not just fix it.
+                What started as curiosity turned into FastAPI applications, Data science, and low level development.
+                I specialize in creating practical solutions from automating workflows to building full stack applications.
+            </p>
+        </div>
+    </div>
+</section>
 
 
-    <section class="projects" id="projects">
-        <h2>Projects</h2>
+<section class="projects" id="projects">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Portfolio</p>
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+
         <div class="project-grid">
 
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">🌐</div>
-                <h3>Black-Scholes Option P/L, Heatmaps</h3>
-                <p>Streamlit app for calculating Black-Scholes option prices, visualizing heatmaps, and storing results in SQLite using SQLAlchemy 2.0.</p>
-                <div class="tech-tags">
-                    <span>Python</span><span>Matplotlib</span><span>Numpy</span><span>Scipy</span><span>Pandas</span><span>SQLAlchemy</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/BlackScholes_Price_Streamlit">GitHub →</a>
-                    <a href="https://blackscholes-price-db.streamlit.app/">Live Demo →</a>
-                </div>
-            </div>
-
-
-
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">🧠</div>
-                <h3>Coding Knowledge Tester</h3>
-                <p>A FastAPI + React application that tests coding knowledge using AI-generated multiple-choice questions. Users sign in via Clerk authentication, answer questions, and receive instant feedback with explanations. The app also keeps a history of previously generated questions for review and learning.</p>
-                <div class="tech-tags">
-                    <span>FastAPI</span><span>React</span><span>Python</span><span>JavaScript</span><span>OpenAI API</span><span>Clerk</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/CodeKnowledgeTester">GitHub →</a>
-                    <a href="https://codeknowledgetester-frontend.onrender.com">Live Demo →</a>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="status wip">Work in Progress</div>
-                <div class="icon">🛒</div>
-                <h3>Amazon Product Scraper & Tracker</h3>
-                <p>Flask app to scrape Amazon products, track prices, and visualize price history with interactive charts. Includes favourites and Bootstrap 5 UI.</p>
-                <div class="tech-tags">
-                    <span>Flask</span><span>SQLAlchemy</span><span>Pandas</span><span>Matplotlib</span><span>Bootstrap 5</span><span>Bright Data API</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://product-tracker-i2ci.onrender.com/">Live Demo →</a>
-                    <a href="https://github.com/MPALONDON/Product_Tracker">GitHub →</a>
+            <div class="project-card fade-in-view">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Black-Scholes Option Pricer</h3>
+                    <p class="project-description">
+                        Streamlit app for calculating Black-Scholes option prices, visualizing heatmaps,
+                        and storing results in SQLite using SQLAlchemy 2.0.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Numpy</span>
+                        <span class="tech-tag">Scipy</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/BlackScholes_Price_Streamlit" class="project-link">
+                            GitHub →
+                        </a>
+                        <a href="https://blackscholes-price-db.streamlit.app/" class="project-link">
+                            Live Demo →
+                        </a>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">🌐</div>
-                <h3>Network Chat Application</h3>
-                <p>Multi-client chat application with real-time messaging using Python and Tkinter. Features private messaging, server-side management, threading, and JSON communication.</p>
-                <div class="tech-tags">
-                    <span>Python</span><span>Tkinter</span><span>Socket</span><span>Threading</span><span>JSON</span><span>GUI Development</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/GUI_Network">GitHub →</a>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="status wip">Work in Progress</div>
-                <div class="icon">📚</div>
-                <h3>Bookshelf Scanner</h3>
-                <p>AI-powered Flask app that scans bookshelf photos to detect books and provides personalized recommendations using OpenAI API. Tracks reading habits and suggests new titles.</p>
-                <div class="tech-tags">
-                    <span>Flask</span><span>OpenAI API</span><span>SQLAlchemy</span><span>Flask-Login</span><span>Bootstrap 5</span><span>Computer Vision</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/Shelfscanner">GitHub →</a>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">✍️</div>
-                <h3>Flask Blog</h3>
-                <p>Full-featured blog with user authentication, commenting system, and admin controls. Rich text editing with CKEditor and Bootstrap 5 interface.</p>
-                <div class="tech-tags">
-                    <span>Flask</span><span>SQLAlchemy</span><span>Flask-WTF</span><span>CKEditor</span><span>Flask-Login</span><span>Bootstrap 5</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog">GitHub →</a>
+            <div class="project-card fade-in-view">
+                <div class="project-image">🧠</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Coding Knowledge Tester</h3>
+                    <p class="project-description">
+                        FastAPI + React application that tests coding knowledge using AI-generated
+                        multiple-choice questions with instant feedback and explanations.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Clerk Auth</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/CodeKnowledgeTester" class="project-link">
+                            GitHub →
+                        </a>
+                        <a href="https://codeknowledgetester-frontend.onrender.com" class="project-link">
+                            Live Demo →
+                        </a>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">🎵</div>
-                <h3>Discord Bot</h3>
-                <p>Feature-rich Discord bot with moderation, music playback, polling system, and automated welcome messages. Built with discord.py and yt_dlp.</p>
-                <div class="tech-tags">
-                    <span>discord.py</span><span>SQLAlchemy</span><span>yt_dlp</span><span>FFmpeg</span><span>Bot Development</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/discordbot">GitHub →</a>
+            <div class="project-card fade-in-view">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-wip">In Progress</span>
+                    </div>
+                    <h3 class="project-title">Amazon Product Tracker</h3>
+                    <p class="project-description">
+                        Flask app to scrape Amazon products, track prices, and visualize price history
+                        with interactive charts and favorites management.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Bright Data</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://product-tracker-i2ci.onrender.com/" class="project-link">
+                            Live Demo →
+                        </a>
+                        <a href="https://github.com/MPALONDON/Product_Tracker" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="project-card">
-                <div class="status complete">Complete</div>
-                <div class="icon">🤖</div>
-                <h3>Web Scraping Automation</h3>
-                <p>Automated scraper using BeautifulSoup and Selenium that extracts book data and submits it to Google Forms. Includes Matplotlib analytics.</p>
-                <div class="tech-tags">
-                    <span>BeautifulSoup</span><span>Selenium</span><span>Matplotlib</span><span>Data Analytics</span><span>Web Automation</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation">GitHub →</a>
+            <div class="project-card fade-in-view">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Network Chat Application</h3>
+                    <p class="project-description">
+                        Multi-client chat application with real-time messaging, private messaging,
+                        and server-side management using Python sockets.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Tkinter</span>
+                        <span class="tech-tag">Socket</span>
+                        <span class="tech-tag">Threading</span>
+                        <span class="tech-tag">JSON</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/GUI_Network" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
                 </div>
             </div>
 
+
+            <div class="project-card fade-in-view">
+                <div class="project-image">📚</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-wip">In Progress</span>
+                    </div>
+                    <h3 class="project-title">Bookshelf Scanner</h3>
+                    <p class="project-description">
+                        AI-powered Flask app that scans bookshelf photos to detect books and provides
+                        personalized recommendations using OpenAI's vision API.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">Flask-Login</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/Shelfscanner" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in-view">
+                <div class="project-image">✍️</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Flask Blog Platform</h3>
+                    <p class="project-description">
+                        Full-featured blog with user authentication, commenting system, admin controls,
+                        and rich text editing with CKEditor.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">Flask-WTF</span>
+                        <span class="tech-tag">CKEditor</span>
+                        <span class="tech-tag">Flask-Login</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in-view">
+                <div class="project-image">🎵</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Discord Bot</h3>
+                    <p class="project-description">
+                        Feature-rich Discord bot with moderation tools, music playback, polling system,
+                        and automated welcome messages.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">discord.py</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">yt_dlp</span>
+                        <span class="tech-tag">FFmpeg</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/discordbot" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="project-card fade-in-view">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-complete">Complete</span>
+                    </div>
+                    <h3 class="project-title">Web Scraping Automation</h3>
+                    <p class="project-description">
+                        Automated scraper using BeautifulSoup and Selenium that extracts book data
+                        and submits it to Google Forms with analytics.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">BeautifulSoup</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Web Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2026 Bello-Pluto Salvatore</p>
-    </footer>
-</div>
+
+<section class="location" id="location">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-tag">Location</p>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-item">
+                <span class="contact-label">Email:</span>
+                <a class="contact-link">bellopluto@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Phone:</span>
+                <a class="contact-link">07472 555229</a>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20036.547!2d-0.5591!3d51.3168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48742078d93d3db7%3A0x2a7c6d8f6e9e5d3e!2sWoking%2C%20Surrey!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="location-info">
+            <p class="location-address">Woking, Surrey, United Kingdom</p>
+        </div>
+    </div>
+</section>
+
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/MPALONDON" class="footer-link">GitHub</a>
+                <a href="mailto:bellopluto@gmail.com" class="footer-link">Email</a>
+                <a href="https://www.linkedin.com/in/bello-pluto-salvatore-3556b9339/" class="footer-link">LinkedIn</a>
+            </div>
+            <p class="copyright">© 2026 Bello-Pluto Salvatore. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-view').forEach(el => {
+        observer.observe(el);
+    });
+</script>
 
 </body>
 </html>
