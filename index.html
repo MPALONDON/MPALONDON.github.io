@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bello-Pluto Salvatore | Python Developer</title>
+    <title>Bello-Pluto Salvatore | Python / C++ Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -483,9 +483,131 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .about {
+            padding: 8rem 0;
+            background: var(--secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+
+        .about-left {}
+
+        .about-intro {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-intro strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+
+        .about-philosophy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .philosophy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.9rem 1.1rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .philosophy-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(99,102,241,0.08);
+        }
+
+        .philosophy-icon {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            flex-shrink: 0;
+        }
+
+        .philosophy-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .philosophy-text strong {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 0.2rem;
+        }
+
+        .about-right {}
+
+        .skill-cluster {
+            margin-bottom: 2rem;
+        }
+
+        .cluster-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            margin-bottom: 0.65rem;
+            padding-left: 2px;
+        }
+
+        .cluster-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .cluster-tag {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.35rem 0.75rem;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .cluster-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #f5f3ff;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
     </style>
 </head>
 <body>
+
 
 
 <nav>
@@ -500,7 +622,6 @@
         </ul>
     </div>
 </nav>
-
 
 <section class="hero" id="home">
     <div class="container">
@@ -526,16 +647,108 @@
             <p class="section-tag">About Me</p>
             <h2 class="section-title">Self-Taught Developer</h2>
         </div>
-        <div class="about-content">
-            <p>
-                I taught myself Python and C++ because I wanted to build stuff, not just fix it.
-                What started as curiosity turned into FastAPI applications, Data science, and low level development.
-                I specialize in creating practical solutions from automating workflows to building full stack applications.
-            </p>
+
+        <div class="about-grid">
+
+            <div class="about-left fade-in-view">
+                <p class="about-intro">
+                    My path into software started with a deliberate choice:
+                    <strong>learn the fundamentals, not just the frameworks.</strong>
+                    I taught myself Python and C++ by building network tools, concurrent
+                    systems, data pipelines and working through the hard parts until they
+                    made sense at every layer.
+                </p>
+
+                <div class="about-philosophy">
+                    <div class="philosophy-item">
+                        <span class="philosophy-icon">⚙️</span>
+                        <div class="philosophy-text">
+                            <strong>Systems level</strong>
+                            Threading models, memory ownership, socket I/O — raw TCP/UDP, multithreaded servers, mutexes, condition variables, and asyncio alongside C++ concurrency primitives.
+                        </div>
+                    </div>
+                    <div class="philosophy-item">
+                        <span class="philosophy-icon">🏗️</span>
+                        <div class="philosophy-text">
+                            <strong>Application level</strong>
+                            FastAPI services, full-stack builds, and workflow automation designed to be maintainable not just functional.
+                        </div>
+                    </div>
+                    <div class="philosophy-item">
+                        <span class="philosophy-icon">🎯</span>
+                        <div class="philosophy-text">
+                            <strong>Engineering focus</strong>
+                            Software that does exactly what it's supposed to, handles failure gracefully, and doesn't require archaeology to modify six months later.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-right fade-in-view">
+
+                <div class="skill-cluster">
+                    <div class="cluster-label">Concurrency &amp; Threading</div>
+                    <div class="cluster-tags">
+                        <span class="cluster-tag">Multithreading</span>
+                        <span class="cluster-tag">asyncio</span>
+                        <span class="cluster-tag">Thread Pools</span>
+                        <span class="cluster-tag">Mutexes</span>
+                        <span class="cluster-tag">Race Conditions</span>
+                        <span class="cluster-tag">Async/Await</span>
+                    </div>
+                </div>
+
+                <div class="skill-cluster">
+                    <div class="cluster-label">Network Programming</div>
+                    <div class="cluster-tags">
+                        <span class="cluster-tag">TCP/IP</span>
+                        <span class="cluster-tag">UDP Sockets</span>
+                        <span class="cluster-tag">WebSockets</span>
+                        <span class="cluster-tag">HTTP/HTTPS</span>
+                        <span class="cluster-tag">TLS/SSL</span>
+                        <span class="cluster-tag">DNS</span>
+                    </div>
+                </div>
+
+                <div class="skill-cluster">
+                    <div class="cluster-label">Systems &amp; Low-level</div>
+                    <div class="cluster-tags">
+                        <span class="cluster-tag">Memory Management</span>
+                        <span class="cluster-tag">C++ STL</span>
+                        <span class="cluster-tag">POSIX</span>
+                        <span class="cluster-tag">System Calls</span>
+                        <span class="cluster-tag">IPC</span>
+                        <span class="cluster-tag">Pointers</span>
+                    </div>
+                </div>
+
+                <div class="skill-cluster">
+                    <div class="cluster-label">Backend &amp; APIs</div>
+                    <div class="cluster-tags">
+                        <span class="cluster-tag">FastAPI</span>
+                        <span class="cluster-tag">REST</span>
+                        <span class="cluster-tag">ASGI/WSGI</span>
+                        <span class="cluster-tag">JWT Auth</span>
+                        <span class="cluster-tag">Middleware</span>
+                    </div>
+                </div>
+
+                <div class="skill-cluster">
+                    <div class="cluster-label">Data &amp; Tooling</div>
+                    <div class="cluster-tags">
+                        <span class="cluster-tag">NumPy</span>
+                        <span class="cluster-tag">Pandas</span>
+                        <span class="cluster-tag">SQL</span>
+                        <span class="cluster-tag">Docker</span>
+                        <span class="cluster-tag">Linux</span>
+                        <span class="cluster-tag">Git</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
-
 
 <section class="projects" id="projects">
     <div class="container">
@@ -547,7 +760,38 @@
         <div class="project-grid">
 
             <div class="project-card fade-in-view">
-                <div class="project-image">🌐</div>
+                <div class="project-image">
+                    <img src="https://droplr.com/wp-content/uploads/2021/06/users-sharing-files-online-using-a-smartphone-app-vector-id1280291919-1024x400.jpg" alt="Media Sharing Platform" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-status status-wip">Work in Progress</span>
+                    </div>
+                    <h3 class="project-title">Media Sharing Platform</h3>
+                    <p class="project-description">
+                        Full-stack platform where users can upload videos or images, comment, like, and view profiles.
+                        Secure JWT authentication, media stored via ImageKit, and REST API backend.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">JWT Auth</span>
+                        <span class="tech-tag">ImageKit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MPALONDON/File-storage-and-sharing-platform" class="project-link">
+                            GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in-view">
+                <div class="project-image">
+                    <img src="https://www.ltpcalculator.com/static/uploads/black_scholes_model.webp" alt="Black-Scholes Option Pricer" style="width:100%; height:100%; object-fit:cover;">
+                </div>
                 <div class="project-content">
                     <div class="project-header">
                         <span class="project-status status-complete">Complete</span>
@@ -575,9 +819,10 @@
                 </div>
             </div>
 
-
             <div class="project-card fade-in-view">
-                <div class="project-image">🧠</div>
+                <div class="project-image">
+                    <img src="https://import.pvs-studio.com/docx/blog/0873_SAST_tools_for_cpp_dev/image4.png?ver=06-04-2025-11-21-36" alt="Coding Knowledge Tester" style="width:100%; height:100%; object-fit:cover;">
+                </div>
                 <div class="project-content">
                     <div class="project-header">
                         <span class="project-status status-complete">Complete</span>
@@ -605,39 +850,10 @@
                 </div>
             </div>
 
-
             <div class="project-card fade-in-view">
-                <div class="project-image">🛒</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-status status-wip">In Progress</span>
-                    </div>
-                    <h3 class="project-title">Amazon Product Tracker</h3>
-                    <p class="project-description">
-                        Flask app to scrape Amazon products, track prices, and visualize price history
-                        with interactive charts and favorites management.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">Bright Data</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://product-tracker-i2ci.onrender.com/" class="project-link">
-                            Live Demo →
-                        </a>
-                        <a href="https://github.com/MPALONDON/Product_Tracker" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
+                <div class="project-image">
+                    <img src="https://files.ably.io/ghost/prod/2023/01/build-a-realtime-chat-app-from-scratch--1-.png" alt="Network Image" style="width:100%; height:100%; object-fit:cover;">
                 </div>
-            </div>
-
-
-            <div class="project-card fade-in-view">
-                <div class="project-image">🌐</div>
                 <div class="project-content">
                     <div class="project-header">
                         <span class="project-status status-complete">Complete</span>
@@ -663,115 +879,9 @@
             </div>
 
 
-            <div class="project-card fade-in-view">
-                <div class="project-image">📚</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-status status-wip">In Progress</span>
-                    </div>
-                    <h3 class="project-title">Bookshelf Scanner</h3>
-                    <p class="project-description">
-                        AI-powered Flask app that scans bookshelf photos to detect books and provides
-                        personalized recommendations using OpenAI's vision API.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">OpenAI</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">Flask-Login</span>
-                        <span class="tech-tag">Computer Vision</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/MPALONDON/Shelfscanner" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="project-card fade-in-view">
-                <div class="project-image">✍️</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-status status-complete">Complete</span>
-                    </div>
-                    <h3 class="project-title">Flask Blog Platform</h3>
-                    <p class="project-description">
-                        Full-featured blog with user authentication, commenting system, admin controls,
-                        and rich text editing with CKEditor.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">Flask-WTF</span>
-                        <span class="tech-tag">CKEditor</span>
-                        <span class="tech-tag">Flask-Login</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/MPALONDON/Flask-SQLAlchemy-Blog" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="project-card fade-in-view">
-                <div class="project-image">🎵</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-status status-complete">Complete</span>
-                    </div>
-                    <h3 class="project-title">Discord Bot</h3>
-                    <p class="project-description">
-                        Feature-rich Discord bot with moderation tools, music playback, polling system,
-                        and automated welcome messages.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">discord.py</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">yt_dlp</span>
-                        <span class="tech-tag">FFmpeg</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/MPALONDON/discordbot" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="project-card fade-in-view">
-                <div class="project-image">🤖</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-status status-complete">Complete</span>
-                    </div>
-                    <h3 class="project-title">Web Scraping Automation</h3>
-                    <p class="project-description">
-                        Automated scraper using BeautifulSoup and Selenium that extracts book data
-                        and submits it to Google Forms with analytics.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">BeautifulSoup</span>
-                        <span class="tech-tag">Selenium</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">Web Automation</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/MPALONDON/BeautifulSoup-Selenium-Automation" class="project-link">
-                            GitHub →
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
-
-
 <section class="location" id="location">
     <div class="container">
         <div class="section-header">
@@ -817,8 +927,8 @@
     </div>
 </footer>
 
-<script>
 
+<script>
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
